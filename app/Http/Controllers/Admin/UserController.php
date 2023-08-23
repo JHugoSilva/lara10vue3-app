@@ -12,4 +12,12 @@ class UserController extends Controller
         $users = User::latest()->get();
         return $users;
     }
+
+    function store(Request $request) {
+        return User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password
+        ]);
+    }
 }
